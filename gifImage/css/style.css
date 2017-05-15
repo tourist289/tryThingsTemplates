@@ -1,4 +1,34 @@
-.name {
-  color: red;
-  background: black;
+@import url("reset.css");
+
+@import url("bootstrap.min.css");
+a,
+a:hover,
+a:focus,
+a:active {
+  cursor: pointer;
+  text-decoration: none;
+}
+header {
+  min-height: 280px;
+  width: 100%;
+  position: relative;
+}
+header .container {
+  border-bottom: 1px solid darkslategrey;
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  clear: both;
+  height: 100%;
+}
+header .logo {
+  background: url("../img/clouds.gif") 0 0 no-repeat;
+  padding: 20px 30px;
+  float: left;
+  text-align: center;
+  color: #fff;
+  margin-right: 20px;
+  font-size: 44px;
 }
