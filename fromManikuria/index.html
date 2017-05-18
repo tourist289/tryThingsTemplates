@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+    // для показывания модальных окон
+    $(document).ready(function(){
+        var hideModal = function(){
+            $(div).hide().removeClass("in");
+            $('body').removeClass("modal-open").css('padding-right', "0px");
+            $(div).next().removeClass("modal-backdrop fade in");// скрываем его
+        };
+        var div = $(".modal"); //
+
+        $(document).on("click",  function(e){
+            if(e.target.className == "link"){
+                var t = e.target.getAttributeNode("data-target").value;
+                $(t).show().addClass("in");
+                $('body').addClass("modal-open").css('padding-right', "15px");
+                $(t).next().addClass("modal-backdrop fade in");
+                return;
+            }
+            if( div.hasClass("in")){
+                if (e.target.hasAttribute("data-dismiss")){    // если клик был  по крестику
+                    hideModal();
+                    return;
+                }
+                if (div.is(e.target) && div.has(e.target).length === 0 ){ // если клик был не по нашему блоку
+                    hideModal();
+                    return;
+                }
+            }
+        });
+
+
+
+
+//        для меню товаров в кабинете
+        $(".items .item-title").on("click", function(e){
+            $(this).next().slideToggle();
+            $(this).toggleClass("open");
+        });
+    });
+</script>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade enter" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Вход</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <p>E-mail:</p><input type="text" placeholder="@mail.ru"><br>
+                    <p>Пароль:</p><input type="text" placeholder="************"><br>
+                    <p class="more"><span >Забыли пароль?</span></p><br>
+                    <input class="btn" type="submit" value="Вход">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <h5>Вход через социальные сети</h5>
+
+                <a href="#" class="btn vk" type="submit" value="">Войти через Vkontakte</a>
+                <a href="#" class="btn od" type="submit" value="">Войти через Однокласники</a>
+                <a href="#" class="btn fk" type="submit" value="">Войти через Facebook</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-back "></div>
+
+
+<!-- Modal 2-->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Регистрация</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <p>Имя:</p> <input type="text" placeholder="Петр"><br>
+                    <p>Телефон</p> <input type="text" placeholder="+38(0"><br>
+                    <p>E-mail:</p><input type="text" placeholder="@mail.ru"><br>
+                    <p>Пароль:</p><input type="text" placeholder="************"><br>
+                    <p>Подтвердить пароль:</p><input type="text" placeholder="************"><br>
+                    <input class="btn" type="submit" value="зарегистрироваться">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <h5>регистрация через соц.сети</h5>
+
+                <a href="#" class="btn vk" type="submit" value="">Войти через Vkontakte</a>
+                <a href="#" class="btn od" type="submit" value="">Войти через Однокласники</a>
+                <a href="#" class="btn fk" type="submit" value="">Войти через Facebook</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-back "></div>
+
+
+
+
+
+
+<main  class="container ">
+    <style>
+        main, main * {
+            box-sizing: border-box;
+        }
+    </style>
+    <div class="breadcrumbs">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Мой кабинет</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3  col-md-3 col-sm-8  col-xs-8 pages">
+            <ul>
+                <li><a class="data-menu active" href="#"><span></span>Личные данные</a></li>
+                <li><a class="sales-menu" href="#"><span></span>Мои заказы</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-2 col-md-push-7 col-sm-4  col-xs-4 side-note">
+            <p>Ваша скидка:<span>5%</span></p>
+            <div class="total-wrap">
+                <div class="total">
+                    <p>Вы уже сэкономили</p>
+                    <span class="price">1990<span>грн</span></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7 col-md-7 col-md-pull-2 col-sm-12 col-xs-12 main-wrap">
+            <h5><span>мои заказы</span></h5>
+            <div class="items">
+                <div class="item">
+                    <div class="item-title">
+                        <span class="item-numb">№ 000000000</span>
+                        <span class="item-date">9 февраля 2017</span>
+                        <span class="item-info">
+                            <span class="item-coutn">2 товара на</span>
+                            <span class="item-price">316 грн</span>
+                        </span>
+                    </div>
+                    <div class="item-content"  >
+                        <ul class="elements">
+                            <li>
+                                <img src="./img/item-icon.png" alt="item"/>
+                                <p>Профессиональный набор для наращивания ногтей</p>
+                                <div class="element-price">
+                                    <b class="count">1 шт.</b>
+                                    <b>158 грн</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="./img/item-icon.png" alt="item"/>
+                                <p>Профессиональный набор для наращивания ногтей</p>
+                                <div class="element-price">
+                                    <b class="count">1 шт.</b>
+                                    <b>158 грн</b>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="item-footer">
+                            <div class="low-price">Скидка: <b>58 грн</b></div>
+
+                            <div class="full-price">Итого к оплате:<b>316 грн</b></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title open">
+                        <span class="item-numb">№ 000000000</span>
+                        <span class="item-date">15 февраля 2017</span>
+                        <span class="item-info">
+                            <span class="item-coutn">2 товара на</span>
+                            <span class="item-price">316 грн</span>
+                        </span>
+                    </div>
+                    <div class="item-content"  >
+                        <ul class="elements">
+                            <li>
+                                <img src="./img/item-icon.png" alt="item"/>
+                                <p>Профессиональный набор для наращивания ногтей</p>
+                                <div class="element-price">
+                                    <b class="count">1 шт.</b>
+                                    <b>158 грн</b>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="./img/item-icon.png" alt="item"/>
+                                <p>Профессиональный набор для наращивания ногтей</p>
+                                <div class="element-price">
+                                    <b class="count">1 шт.</b>
+                                    <b>158 грн</b>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="item-footer">
+                            <div class="low-price">Скидка: <b>58 грн</b></div>
+
+                            <div class="full-price">Итого к оплате:<b>316 грн</b></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">
+                        <span class="item-numb">№ 000000000</span>
+                        <span class="item-date">15 февраля 2017</span>
+                        <span class="item-info">
+                            <span class="item-coutn">2 товара на</span>
+                            <span class="item-price">316 грн</span>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="item-title">
+                        <span class="item-numb">№ 000000000</span>
+                        <span class="item-date">15 февраля 2017</span>
+                        <span class="item-info">
+                            <span class="item-coutn">2 товара на</span>
+                            <span class="item-price">316 грн</span>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="item-title">
+                        <span class="item-numb">№ 000000000</span>
+                        <span class="item-date">15 февраля 2017</span>
+                        <span class="item-info">
+                            <span class="item-coutn">2 товара на</span>
+                            <span class="item-price">316 грн</span>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+
+
+<main class="container ">
+    <div class="breadcrumbs">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Мой кабинет</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3  col-md-3 col-sm-8  col-xs-8 pages">
+            <ul>
+                <li><a class="data-menu active" href="#"><span></span>Личные данные</a></li>
+                <li><a class="sales-menu" href="#"><span></span>Мои заказы</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-2 col-md-push-7 col-sm-4  col-xs-4 side-note">
+            <p>Ваша скидка:<span>5%</span></p>
+            <!--<div class="total-wrap">-->
+            <!--<div class="total">-->
+            <!--<p>Вы уже сэкономили</p>-->
+            <!--<span class="price">1990<span>грн</span></span>-->
+            <!--</div>-->
+            <!--</div>-->
+
+        </div>
+        <div class="col-lg-7 col-md-7 col-md-pull-2 col-sm-12 col-xs-12 main-wrap register-form">
+            <h5><span>Регистрационная информация</span></h5>
+            <form action="">
+                <p>имя: </p><input type="text" ><br>
+                <p>фамилия:</p><input type="text"><br>
+                <p>дата рождения:</p> <input type="text"><br>
+                <p>телефон:</p><input type="text"><br>
+                <p>адрес доставки:</p><input class="adress" type="text"><br>
+                <p class="more"><span >+ Еще один</span></p><br>
+                <p>изменить email:</p><input type="text"><br>
+                <p>изменить пароль:</p><input type="text"><br>
+                <p>потворить пароль:</p><input type="text">
+                <input class="btn" type="submit" value="изменить">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+</body>
+</html>
