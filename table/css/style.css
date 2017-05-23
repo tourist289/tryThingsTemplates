@@ -1,0 +1,41 @@
+@import url("reset.css");
+
+@import url("normalize.css");
+
+@import url("bootstrap-theme.min.css");
+
+@import url("bootstrap.min.css");
+a,
+a:hover,
+a:focus,
+a:active {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tbody,
+.trow {
+	width: 100%;
+}
+.trow > span, 
+.trow > div {
+	display: inline-block;
+	width: 19%;
+	
+}
+.tbody .trow > div, 
+.thead span {
+	padding: 14px 0;
+	text-align: center;
+	font-size: 14px;
+	color: #000;
+	vertical-align: middle;
+}
+.tbody img {
+	padding: 14px 0;
+	width: 100%;
+}
+.item {
+	display: block;
+	padding: 10px 10px;
+}
