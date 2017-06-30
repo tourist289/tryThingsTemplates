@@ -7,8 +7,91 @@
     <link rel="stylesheet" href="./css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link rel="stylesheet" href="./css/style.css"/>
+    <style>
+        .additional,
+        .main {
+            padding: 5px 10px;
+            margin: 10px;
+            width: 600px;
+            min-height: 60px;
+            border: 2px solid #000;
+            display: inline-block;
+        }
+        .item {
+            text-align: center;
+            padding: 5px;
+            border: 2px solid #ff8205;
+            margin: 5px ;
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
+
+    </style>
 </head>
 <body>
-<h1>sdfgsdgsg</h1>
+    <div class="main wrap">
+        <div id="item1" class="item">1</div>
+        <div id="item2" class="item">2</div>
+        <div id="item3" class="item">3</div>
+        <div id="item4" class="item">4</div>
+        <div id="item5" class="item">5</div>
+    </div>
+    <div class="additional wrap">
+        <div id="item6" class="item">6</div>
+        <div id="item7" class="item">7</div>
+        <div id="item8" class="item">8</div>
+        <div id="item9" class="item">9</div>
+        <div id="item0" class="item">0</div>
+    </div>
+    <span class="text"></span>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            let arr1 = [1,2,3,4,5];
+            let arr2 = [6,7,8,9,0];
+
+
+            $(' .item').on('click',  function(e){
+                let a = e.target;
+                let targetId = e.target.id;
+
+                console.log(a);
+
+                $(this).parent().siblings('.wrap').append(a);
+
+                targetId = parseInt(targetId.slice(4,targetId.length));
+                console.log(arr1.indexOf(targetId));
+                if(arr1.indexOf(targetId) != -1){
+                    delete arr1[arr1.indexOf(targetId)];
+
+
+
+                    console.log(12344);
+                } else {
+
+                    arr1.push(targetId);
+
+
+                }
+                $('.text').text(arr1);
+                console.log(arr1);
+
+//                $(this).css('display', 'none');
+//                $(this).remove();
+
+
+//                var btn = document.createElement("BUTTON");
+//                var t = document.createTextNode("CLICK ME");
+//                btn.appendChild(t);
+//                document.body.appendChild(btn);
+
+            });
+        });
+    </script>
+
 </body>
 </html>
